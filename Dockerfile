@@ -12,17 +12,11 @@ RUN apt-get update -y \
     # cleaning up unused files
     && rm -rf /var/lib/apt/lists/*
 
-RUN apt-get update && \
-    apt-get install -y default-libmysqlclient-dev build-essential pkg-config
-
-RUN pip install mysqlclient==2.2.0
-
+RUN apt-get install -y default-libmysqlclient-dev build-essential pkg-config
 
 # Install project dependencies
 COPY ./Pipfile ./Pipfile.lock /
 RUN pipenv sync --dev --system
-
-RUN pip install psycopg[binary]
 
 # cd /app (get or create)
 WORKDIR /app

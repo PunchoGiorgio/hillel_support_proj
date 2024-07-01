@@ -60,7 +60,7 @@ class Activator:
         connection = redis.Redis.from_url(settings.CACHE_URL)
 
         payload = {"user_id": internal_user_id}
-        connection.set(f"activation: {activation_key}", json.dumps(payload), ex=90000)
+        connection.set(f"activation: {activation_key}", json.dumps(payload), ex=900)
 
     def validate_activation(self, activation_key: uuid.UUID) -> None:
 

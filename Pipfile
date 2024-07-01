@@ -4,19 +4,19 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-mysqlclient = "*"
+mysqlclient = "==2.2.0"
 requests = "*"
 django = "*"
 celery = { version = "==5.4.0", extras = ["redis"] }
 djangorestframework = "*"
 djangorestframework-simplejwt = { version = "~=5.3.1", extras = ["crypto"] }
-psycopg = "*"
 python-decouple = "*"
 pkgconfig = "*"
 apache-airflow-providers-mysql = "*"
 redis = { version = "~=5.0", extras = ["hiredis"] }
 eventlet = "*"
 mailhog = "*"
+psycopg = {extras = ["binary"], version = "*"}
 
 [dev-packages]
 black = "*"
